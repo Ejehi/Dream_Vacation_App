@@ -1,5 +1,16 @@
 # Dream Vacation App
 
+## GitHub Actions CI/CD pipeline
+
+<img width="1710" height="988" alt="Screenshot 2025-08-03 at 14 54 49" src="https://github.com/user-attachments/assets/6c9b80dc-cf65-460a-a7b0-9c3b3cfe0e8e" />
+
+
+
+<img width="1710" height="987" alt="Screenshot 2025-08-03 at 14 58 58" src="https://github.com/user-attachments/assets/a5e49b26-3527-4f17-9b93-6ea465ae92dc" />
+
+
+GitHub runs this workflow automatically by using your saved secrets to log in securely to dockerhub.
+
 ## Run the entire app
 
 <img width="1710" height="1107" alt="docker-build-up" src="https://github.com/user-attachments/assets/1a9c86c3-25de-4ae9-b076-f03878c969ac" />

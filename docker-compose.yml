@@ -1,43 +1,39 @@
-version: '3.8'
-
 services:
   frontend:
-    image: ejehi/dreamvacation-frontend
+    build: ./frontend
     ports:
-      - "3000:80"
+      - "80:80"
     depends_on:
       - backend
     networks:
-      - dreamnet
+      - dream_net
 
   backend:
-    image: ejehi/dreamvacation-backend
+    build: ./backend
     ports:
-      - "5001:5000"
+      - "3001:3001"
     env_file:
-      - .env
+      - ./backend/.env
     depends_on:
       - db
     networks:
-      - dreamnet
+      - dream_net
 
   db:
-    image: postgres:15-alpine
+    image: postgres:15
     restart: always
     environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: dreamuser
+      POSTGRES_PASSWORD: dreampassword
+      POSTGRES_DB: dreamvacations
     volumes:
-      - db_data:/var/lib/postgresql/data
-    ports:
-      - "5433:5432"
+      - dream_db_data:/var/lib/postgresql/data
     networks:
-      - dreamnet
-
-networks:
-  dreamnet:
-    driver: bridge
+      - dream_net
 
 volumes:
-  db_data:
+  dream_db_data:
+
+networks:
+  dream_net:
+    driver: bridge
